@@ -34,7 +34,7 @@ app.post('/posts', async (req, res) => {
 })
 
 app.post('/events', async (req, res) => {
-    console.log('Receive event posts')
+    console.log(`Receive event ${req.body.type}`)
 })
 
 app.listen(4000, () => {
