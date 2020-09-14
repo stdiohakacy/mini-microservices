@@ -1,21 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: posts-depl
+  name: query-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: posts
+      app: query
   template:
     metadata:
       labels:
-        app: posts
+        app: query
     spec:
       containers:
-      - name: posts
-        image: asd2321s2/posts
+      - name: query
+        image: asd2321s2/query
         resources:
           limits:
             memory: "128Mi"
             cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: query-srv
+spec:
+  selector:
+    app: query
+  ports:
+  - port: 4002
+    targetPort: 4002
