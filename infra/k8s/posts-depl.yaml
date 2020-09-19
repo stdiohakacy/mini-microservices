@@ -13,9 +13,18 @@ spec:
         app: posts
     spec:
       containers:
-      - name: posts
-        image: asd2321s2/posts
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
+        - name: posts
+          image: asd2321s2/posts
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-clusterip-srv
+spec:
+  selector:
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 4000
+      targetPort: 4000

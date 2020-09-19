@@ -13,12 +13,8 @@ spec:
         app: event-bus
     spec:
       containers:
-      - name: event-bus
-        image: asd2321s2/event-bus
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
+        - name: event-bus
+          image: asd2321s2/event-bus
 ---
 apiVersion: v1
 kind: Service
@@ -28,8 +24,7 @@ spec:
   selector:
     app: event-bus
   ports:
-  - name: event-bus
-    protocol: TCP
-    port: 4005
-    targetPort: 4005
-
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005

@@ -13,12 +13,8 @@ spec:
         app: comments
     spec:
       containers:
-      - name: comments
-        image: asd2321s2/comments
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
+        - name: comments
+          image: asd2321s2/comments
 ---
 apiVersion: v1
 kind: Service
@@ -28,8 +24,7 @@ spec:
   selector:
     app: comments
   ports:
-  - name: comments
-    protocol: TCP
-    port: 4001
-    targetPort: 4001
-
+    - name: comments
+      protocol: TCP
+      port: 4001
+      targetPort: 4001

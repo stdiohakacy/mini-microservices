@@ -13,12 +13,8 @@ spec:
         app: moderation
     spec:
       containers:
-      - name: moderation
-        image: asd2321s2/moderation
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
+        - name: moderation
+          image: asd2321s2/moderation
 ---
 apiVersion: v1
 kind: Service
@@ -28,7 +24,7 @@ spec:
   selector:
     app: moderation
   ports:
-  - name: moderation
-    protocol: TCP
-    port: 4003
-    targetPort: 4003
+    - name: moderation
+      protocol: TCP
+      port: 4003
+      targetPort: 4003

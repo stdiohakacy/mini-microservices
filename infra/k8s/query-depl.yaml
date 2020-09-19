@@ -13,12 +13,8 @@ spec:
         app: query
     spec:
       containers:
-      - name: query
-        image: asd2321s2/query
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
+        - name: query
+          image: asd2321s2/query
 ---
 apiVersion: v1
 kind: Service
@@ -28,5 +24,7 @@ spec:
   selector:
     app: query
   ports:
-  - port: 4002
-    targetPort: 4002
+    - name: query
+      protocol: TCP
+      port: 4002
+      targetPort: 4002
