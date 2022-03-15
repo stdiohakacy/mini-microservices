@@ -10,14 +10,14 @@ app.use(cors());
 
 app.post('/events', async (req, res) => {
     const { type, data } = req.body;
-    const { id, postId, content } = data;
 
     if (type === "CommentCreated") {
-
+        const { id, postId, content } = data;
+        const status = data.content.includes('orange') ? 'rejected' : 'approved';
         await axios.post('http://localhost:4005/events', {
             type: "CommentModerated",
-            data: { id, postId, content }
-        });
+            data: { id, postId, status, content }
+        })
     }
 
     res.send({});
