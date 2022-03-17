@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:16-alpine3.12
  
 # Add the following line 
 ENV CI=true
